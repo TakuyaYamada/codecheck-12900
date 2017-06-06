@@ -55,7 +55,6 @@ def main(argv):
 
     stack = []
     for f in buf:
-        print(stack)
         if f.isdigit():
             stack.append(f)
         else:
