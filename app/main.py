@@ -4,8 +4,8 @@ operators = ['*', '/', '+', '-']
 
 
 def main(argv):
-    formula_list = list(argv)
-    # formula_list = list("(1 + 2) * 3")
+    # formula_list = list(argv)
+    formula_list = list("4 * ((3 - 2) + 1)")
     while ' ' in formula_list:
         formula_list.remove(' ')
     buf = []
@@ -16,8 +16,6 @@ def main(argv):
         return 3
     before_formula = "None"
     for f in formula_list:
-        print(f)
-        print(stack)
         if not f.isdigit() and f not in operators and f != '(' and f != ')':
             return 2
         elif f.isdigit():
@@ -57,12 +55,13 @@ def main(argv):
 
     stack = []
     for f in buf:
+        print(stack)
         if f.isdigit():
             stack.append(f)
         else:
             f1 = stack.pop()
             f2 = stack.pop()
-            result = eval("{0} {1} {2}".format(f1, f, f2))
+            result = eval("{0} {1} {2}".format(f2, f, f1))
             stack.append(result)
     result = stack.pop()
     print("{0} = {1}".format(formula, result))
