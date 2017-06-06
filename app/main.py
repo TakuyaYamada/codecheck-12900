@@ -4,8 +4,7 @@ operators = ['*', '/', '+', '-']
 
 
 def main(argv):
-    # formula_list = list(argv[0])
-    formula_list = list('1 * 2 * 3 * 4')
+    formula_list = list(argv[0])
     while ' ' in formula_list:
         formula_list.remove(' ')
     buf = []
