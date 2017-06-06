@@ -4,7 +4,8 @@ operators = ['*', '/', '+', '-']
 
 
 def main(argv):
-    formula_list = list(argv[0])
+    # formula_list = list(argv[0])
+    formula_list = list('1 * 2 * 3 * 4')
     while ' ' in formula_list:
         formula_list.remove(' ')
     buf = []
@@ -40,7 +41,7 @@ def main(argv):
                 return 4
             while len(stack) > 0:
                 if stack[len(stack) - 1] in operators and f in operators and \
-                   opes_values[stack[len(stack) - 1]] > opes_values[f]:
+                   opes_values[stack[len(stack) - 1]] >= opes_values[f]:
                     tmp = stack.pop()
                     buf.append(tmp)
                 else:
