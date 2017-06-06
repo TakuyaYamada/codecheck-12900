@@ -65,6 +65,3 @@ def main(argv):
     result = stack.pop()
     print("{0} = {1}".format(formula, result))
     return 0
-
-
-main('dummy')
