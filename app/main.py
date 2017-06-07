@@ -4,9 +4,22 @@ operators = ['*', '/', '+', '-']
 
 
 def main(argv):
-    formula_list = list(argv[0])
-    while ' ' in formula_list:
-        formula_list.remove(' ')
+    org_formula_list = argv[0].split(' ')
+    formula_list = []
+    for i, f in enumerate(org_formula_list):
+        if '(' in list(f):
+            tmp = '('
+            tmp2 = ''.join(list(f).remove('('))
+            formula_list.append(tmp)
+            formula_list.append(tmp2)
+        elif ')' in list(f):
+            tmp = ')'
+            tmp2 = ''.join(list(f).remove(')'))
+            formula_list.append(tmp2)
+            formula_list.append(tmp)
+        else:
+            formula_list.append(f)
+    print(formula_list)
     buf = []
     stack = []
     if len(formula_list) == 0:
